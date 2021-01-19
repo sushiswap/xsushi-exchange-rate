@@ -5,6 +5,7 @@
 // Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
 
+
 async function main() {
   const sushiAddress = "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2";
   const xSushiAddress = "0x8798249c2E607446EfB7Ad49eC89dD1865Ff4272";
@@ -20,6 +21,8 @@ async function main() {
   const xSushiExchangeRate = await XSushiExchangeRate.deploy(xSushiAddress, sushiAddress);
 
   await xSushiExchangeRate.deployed();
+
+  console.log("xSushiExchnageRate Address:", xSushiExchangeRate.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
