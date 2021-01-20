@@ -7,9 +7,8 @@ interface IERC20 {
 }
 
 contract xSushiExchangeRate {
-
-  IERC20 xSushi;
-  IERC20 sushi;
+  IERC20 private immutable xSushi;
+  IERC20 private immutable sushi;
 
   constructor(address _xSushi, address _sushi) {
     xSushi = IERC20(_xSushi);
@@ -17,6 +16,14 @@ contract xSushiExchangeRate {
   }
 
   function getExchangeRate() public view returns( uint256 ) {
-    return sushi.balanceOf(address(xSushi))*(10**18) / xSushi.totalSupply();
+    return sushi.balanceOf(address(xSushi))*(1e18) / xSushi.totalSupply();
+  }
+  
+  function toSUSHI(uint256 xSushiAmount) public view returns (uint256 sushiAmount) {
+    sushiAmount = xSushiAmount * sushi.balanceOf(address(xSushi)) / xSushi.totalSupply();
+  }
+  
+  function toXSUSHI(uint256 sushiAmount) public view returns (uint256 xSushiAmount) {
+    xSushiAmount = sushiAmount * xSushi.totalSupply() / sushi.balanceOf(address(xSushi));
   }
 }
