@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "hardhat test",
+    "prettier": "prettier --write test/**/*.js contracts/**/*.sol",
+    "lint": "yarn prettier && solhint -c .solhint.json 'contracts/**/*.sol'"
   },
   "keywords": [],
   "author": "",
@@ -16,9 +18,15 @@
     "chai": "^4.2.0",
     "ethereum-waffle": "^3.2.1",
     "ethers": "^5.0.26",
-    "hardhat": "^2.0.8"
+    "hardhat": "^2.0.8",
+    "solc": "0.6.12",
+    "solhint": "^3.3.2",
+    "solhint-plugin-prettier": "^0.0.5",
+    "prettier": "^2.2.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.2"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^3.3.0"
+    "@openzeppelin/contracts": "^3.3.0",
+    "@boringcrypto/boring-solidity": "boringcrypto/BoringSolidity#39fdd3b"
   }
 }
