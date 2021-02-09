@@ -21,11 +21,11 @@ const MAINNET_PRIVATE_KEY = "KEY_GOES_HERE";
  */
 module.exports = {
   solidity: {
-    version: "0.8.0",
+    version: "0.6.12",
     settings: {
       optimizer: {
         enabled: true,
-        runs: 200
+        runs: 9999
       }
     }
   },

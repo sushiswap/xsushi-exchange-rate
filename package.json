@@ -6,7 +6,8 @@
   "scripts": {
     "test": "hardhat test",
     "prettier": "prettier --write test/**/*.js contracts/**/*.sol",
-    "lint": "yarn prettier && solhint -c .solhint.json 'contracts/**/*.sol'"
+    "lint": "yarn prettier && solhint -c .solhint.json 'contracts/**/*.sol'",
+    "build": "hardhat compile"
   },
   "keywords": [],
   "author": "",
